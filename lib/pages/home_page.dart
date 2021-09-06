@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
+import 'package:hello_world/widgets/draw.dart';
 
 class  HomePage extends StatelessWidget {
   
@@ -18,7 +19,7 @@ class  HomePage extends StatelessWidget {
           ),
         ),
 
-        drawer: Drawer(),
+        drawer: MyDraw(),
       );
       
   
