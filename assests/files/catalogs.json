@@ -1,0 +1,117 @@
+{
+
+"products": [
+{
+    "id": 1,
+    "name": "Galaxy Z Fold3 5G",
+    "description": "Galxy Fold for your use.",
+    "price": 1111.50,
+    "color": "#33505a",
+    "image": "https://www.slashgear.com/wp-content/uploads/2021/08/galaxy-z-fold-3.jpg"
+},
+
+{
+    "id": 2,
+    "name": "Galaxy Z Fold3 5G",
+    "description": "Galaxy Fold for your use.",
+    "price": 1111.50,
+    "color": "#33505a",
+    "image": "https://www.slashgear.com/wp-content/uploads/2021/08/galaxy-z-fold-3.jpg"
+        },
+
+    {
+    "id": 3,
+    "name": "Galaxy Z Flip 5G",
+    "description": "Galaxy Flip for your use.",
+    "price": 11122.50,
+    "color": "#00ac51",
+    "image": "https://www.att.com/idpassets/global/devices/phones/samsung/samsung-galaxy-z-flip3-5g/defaultimage/cream-hero-zoom.png"
+        },
+    {
+    "id": 4,
+    "name": "Galaxy Chromebook2",
+    "description": "Galaxy Chromebbok2 for your use.",
+    "price": 350.50,
+    "color": "#33505a",
+    "image": "https://i.gadgets360cdn.com/large/galaxy_chromebook_Red_main_1578374084288.jpg"
+    },
+
+{
+    "id": 5,
+    "name": "Galaxy Buds",
+    "description": "Galxy Buds for your use.",
+    "price": 235.50,
+    "color": "#33505a",
+    "image": "https://image-us.samsung.com/us/smartphones/galaxy-s21/attic/violet/Position9_PDP-GALLERY-Attic-Violet-1600x1200.jpg?$product-details-jpg$"
+    },
+
+{
+    "id": 6,
+    "name": "Apple Airpods",
+    "description": "Galxy Fold for your use.",
+    "price": 245.50,
+    "color": "#1c1c1c",
+    "image": "https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F60ca4903b52bedfa9ad71929%2FApple-AirPods-Pro%2F960x0.jpg%3Ffit%3Dscale"
+    },
+
+{
+    "id": 7,
+    "name": "Iphone 12 Pro Max",
+    "description": "Iphone 12 Pro Max for your use.",
+    "price": 1200.00,
+    "color": "#f73984",
+    "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-max-gold-hero?wid=470&hei=556&fmt=jpeg&qlt=95&.v=1604021660000"
+    },
+
+{
+    "id": 8,
+    "name": "Ipad Mini",
+    "description": "Ipad Mini for your use.",
+    "price": 650.55,
+    "color": "#33505a",
+    "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-mini-select-201911_FMT_WHH?wid=2000&hei=2000&fmt=jpeg&qlt=80&.v=1573825332486"
+    },
+
+{
+    "id": 9,
+    "name": "Apple Watch",
+    "description": "Apple Watch for your use.",
+    "price": 1111.50,
+    "color": "#33505a",
+    "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/38-alu-silver-sport-white-nc-s3-1up?wid=1673&hei=1353&fmt=jpeg&qlt=95&.v=1594318675000"
+
+    },
+
+{
+    "id": 10,
+    "name": "Galaxy S20 Ultra",
+    "description": "Galaxy S20 Ultra for your use.",
+    "price": 12250.55,
+    "color": "#33505a",
+    "image": "https://www.notebookcheck.net/uploads/tx_nbc2/SamsungGalaxyS20Ultra__1_.JPG"
+
+}
+
+
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
