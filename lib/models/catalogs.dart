@@ -1,5 +1,21 @@
+class CatalogsModel {
+  static final products = [
+Item(
+  id: 1,
+  name: "Galaxy Z Fold3 5G",
+  description: "Galxy Fold for your use.",
+  price: 1111.50,
+  color: "#33505a",
+  image: "https://lh3.googleusercontent.com/proxy/t6ifkeXyx7CaaXc-z7aJVzxw9ZJDbl4PEhlamM4LI28Ypce5NzWy6-PGYW-9znHPxloQNObHlC57ggyhLNch2FcD12T63PdCh-5ojwlK4kEXnGV4Hel1Z7BTmg1PVIR0vUM9J1p85CSq0RvC3A"
+)
+
+];
+}
+
+
+
 class Item{
-  final String id;
+  final int id;
   final String name;
   final String description;
   final num price;
@@ -8,23 +24,4 @@ class Item{
 
   Item({required this.id, required this.name, required this.description, required this.price, required this.color, required this.image});
 
-
-final products = [
-Item(
-  id: "Bhupin1",
-  name: "Bag1",
-  description: "Bag for you",
-  price: 999,
-  color: "#33505a",
-  image: "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1624282915-screen-shot-2021-06-21-at-9-41-22-am-1624282893.png?crop=1xw:1xh;center,top&resize=480:*"
-
-
-
-
-)
-
-
-
-];
-  
 }
