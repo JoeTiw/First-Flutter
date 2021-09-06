@@ -24,15 +24,18 @@ class _HomePageState extends State<HomePage> {
     loadData();
   }
   loadData()  async {
+    await Future.delayed(Duration(seconds: 2));
     final catalogsJson = await rootBundle.loadString("assests/files/catalogs.json");
     final decodedData = jsonDecode(catalogsJson);
     var productsData = decodedData["products"];
-    print(productsData);
+    CatalogsModel.products = List.from(productsData).map<Item>((item) => Item.fromMap(item)).toList();
+    setState(() {});
+  
     
   }
   @override
   Widget build(BuildContext context) {
-    final dummyList = List.generate(10, (index) => CatalogsModel.products[0]);
+   
     return Scaffold(
       appBar: AppBar(
         title: Text("Bhupin's App",
@@ -45,19 +48,24 @@ class _HomePageState extends State<HomePage> {
       ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: ListView.builder(
-           itemCount: dummyList.length ,
+          child: (CatalogsModel.products!= null && CatalogsModel.products.isNotEmpty)? ListView.builder(
+           itemCount: CatalogsModel.products.length ,
            itemBuilder: (context, index){
              return ProductsWidget(
-               item: dummyList[index],
+               item: CatalogsModel.products[index],
                );
            },
            
-           ),
+           )
+            : Center(
+              child: CircularProgressIndicator(),
+
+            ),
+
         ),
 
         drawer: MyDraw(),
-      );
+    );
       
   
   }
