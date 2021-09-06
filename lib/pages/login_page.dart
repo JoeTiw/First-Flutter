@@ -3,126 +3,127 @@ import 'package:hello_world/utilis/routes.dart';
 
 class LoginPage extends StatefulWidget {
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   String name = "";
   bool changeButton = false;
 
+  final _formKey = GlobalKey<FormState>();
+
+  moveToHome(BuildContext context) async {
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        changeButton = true;
+      });
+      await Future.delayed(Duration(seconds: 1));
+      await Navigator.pushNamed(context, MyRoutes.homeRoute);
+      setState(() {
+        changeButton = false;
+      });
+    }
+  }                                                     //2.43.40
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white,
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Image.asset(
-              "assests/images/login_image.png",
-              fit: BoxFit.cover,
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            Text(
-              "Welcome $name",
-              style: TextStyle(
-                fontSize: 27,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-      /*----------------------------------create username and password ------------------------------------------------------- */
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                children: [
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: " Enter Username",
-                      labelText: "Username",
-                    ),
-                    onChanged: (value){
-                      name = value;
-                      setState(() {});
-                    },
+        color: Colors.white,
+        child: SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                Image.asset(
+                  "assests/images/authentication_image.png",
+                  fit: BoxFit.cover,
+                ),
+                SizedBox(
+                  height: 19.0,
+                ),
+                Text(
+                  "Welcome $name",
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
                   ),
-                  TextFormField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      hintText: " Enter Password",
-                      labelText: "Password",
-                    ),
-                  ),
-                  SizedBox(
-                    height: 40.0,
-                  ),
-                 
-                 InkWell(
-                   onTap: () async {
-                     setState(() {
-                       changeButton = true;
-                     });
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 17.0, horizontal: 29.0),
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        decoration: InputDecoration(
+                          hintText: "Enter username",
+                          labelText: "Username",
+                        ),
+                       validator: (String? value) {                        
+                        if (value != null && value.isEmpty) {
+                            return "Username can't be empty";
+                        }
 
-                     await Future.delayed(Duration(seconds: 1));
-                     Navigator.pushNamed(context, MyRoutes.homeRoute);
-                   },
-                   child: AnimatedContainer(
-                          duration: Duration(seconds: 1) ,
-                          width: changeButton?50 : 100,
-                          height: 50,
-                          alignment: Alignment.center,
-                          child: changeButton
-                          ?Icon(Icons.done, 
-                          color: Colors.white,
-                          )
-                          
-                         :Text ("Login", 
-                          style: TextStyle(color: Colors.white, 
-                          fontWeight: FontWeight.bold, 
-                          fontSize: 19),
+                             return null;
+                              },
+                        onChanged: (value) {
+                          name = value;
+                          setState(() {});
+                        },
+                      ),
+                      TextFormField(
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          hintText: "Enter password",
+                          labelText: "Password",
+                        ),
+                         validator: (String? value) {                        
+                        if (value != null && value.isEmpty) {
+                            return "Password can't be empty";
+                        } else if (value!.length<6){
+                          return "Password length should be at least six characters long";
+                        }
+
+                             return null;
+                              }
+                      ),
+                      SizedBox(
+                        height: 40.0,
+                      ),
+                      Material(
+                        color: Colors.deepPurple,
+                        borderRadius:
+                            BorderRadius.circular(changeButton ? 50 : 8),
+                        child: InkWell(
+                          onTap: () => moveToHome(context),
+                          child: AnimatedContainer(
+                            duration: Duration(seconds: 1),
+                            width: changeButton ? 50 : 150,
+                            height: 50,
+                            alignment: Alignment.center,
+                            child: changeButton
+                                ? Icon(
+                                    Icons.done,
+                                    color: Colors.white,
+                                  )
+                                : Text(
+                                    "Login",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                                  ),
                           ),
-                          decoration: BoxDecoration(
-                            color:Colors.deepPurple,
-                            //shape: changeButton
-                           // ?BoxShape.circle
-                           // :BoxShape.rectangle,
-                            borderRadius: 
-                            BorderRadius.circular(
-                              changeButton ? 50 : 7)
-                              ),
-                 
-                   ),
-                 ),
-
-
-
-
-
-
-
-
-              /*   
-                  ElevatedButton(
-                    child: Text("Login"),
-                   
-                    style: TextButton.styleFrom(minimumSize: Size(100,40)),
-                    onPressed: () {
-                      Navigator.pushNamed(context, MyRoutes.homeRoute);
-                    },
+                        ),
+                      ),
+                    ],
                   ),
-
-                  */
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
-    );
+                )
+              ],
+            ),
+          ),
+        ));
   }
 }
