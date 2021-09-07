@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 class CatalogsModel {
-  static List<Item> products;
+   static  List<Item>? products;
 }
 
 
