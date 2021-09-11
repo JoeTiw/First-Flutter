@@ -13,10 +13,13 @@ final Item catalog;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      backgroundColor: MyTheme.creamColor,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent),
+      
+      
+      backgroundColor: Colors.white,
       bottomNavigationBar:  Container(
-        color: Colors.white,
+        color: MyTheme.creamColor,
         child: ButtonBar(
                 alignment: MainAxisAlignment.spaceBetween,
                 buttonPadding: EdgeInsets.zero,
@@ -31,10 +34,11 @@ final Item catalog;
                         shape: MaterialStateProperty.all(
                           StadiumBorder(),
                         )),
-                    child: "Buy".text.xl.make(),
-                  )
+                    child: "Add to cart".text.xl.make(),
+                  ).wh(125, 50)
                 ],
               ).p32(),
+              
       ),    
       body: SafeArea(
         bottom: false,
@@ -42,7 +46,7 @@ final Item catalog;
           children: [
             Hero(
               tag: Key(catalog.id.toString()),
-              child: Image.network(catalog.image)
+              child: Image.network(catalog.image),
 
               ) .h32(context),
               Expanded(
@@ -51,17 +55,24 @@ final Item catalog;
                   arcType: VxArcType.CONVEY,
                   edge: VxEdge.TOP,
                 child: Container(
-                  color: Colors.white,
+                  color: MyTheme.creamColor,
                   width: context.screenWidth,
-                  child: Column(
-                    children: [
-                     catalog.name.text.xl3.color(
-                       MyTheme.darkBluishColor
-                       ).bold.make(),
-                    catalog.description.text.make(),
-                     10.heightBox,
-                    ],
-                  ).py64(),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                       catalog.name.text.xl3.color(
+                         MyTheme.darkBluishColor
+                         ).bold.make(),
+                      catalog.description.text.make(),
+                       10.heightBox,
+                       "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of lettersas opposed to using 'Content here, for your use."
+                       .text.make()
+
+                       .p16()
+                  
+                      ],
+                    ).py64(),
+                  ),
                 ),
               ))
           ],
